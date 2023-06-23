@@ -9,7 +9,7 @@ const todoList = [
   { id: 4, title: "fourth", desc: "agaasldkjfa", isDone: false },
 ];
 
-type Todo = {
+type TodoType = {
   id: number;
   title: string;
   desc: string;
