@@ -1,7 +1,12 @@
-import "./App.css";
+import React from "react";
+import { GlobalStyle } from "./styles";
+import { TodoList } from "./components/TodoList";
 
-function App() {
-  return <div>dd</div>;
-}
-
-export default App;
+export const App: React.FC = () => {
+  return (
+    <React.Fragment>
+      <GlobalStyle />
+      <TodoList />
+    </React.Fragment>
+  );
+};
