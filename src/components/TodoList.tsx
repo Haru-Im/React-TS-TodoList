@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Todo } from "./Todo";
 import { TodoGroup } from "./TodoGroup";
+import { AddTodo } from "./AddTodo";
 
 const todoList = [
   { id: 0, title: "first", desc: "hihihi", isDone: false },
@@ -18,30 +19,9 @@ type TodoType = {
 
 export const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>(todoList);
-  const [newTitle, setNewTitle] = useState<string>("");
-  const [newDesc, setNewDesc] = useState<string>("");
 
   const doneTodos = todos.filter((e) => e.isDone);
   const notDoneTodos = todos.filter((e) => !e.isDone);
-
-  const handleAdd = () => {
-    if (newTitle.trim().length !== 0 && newDesc.trim().length !== 0) {
-      setTodos([
-        ...todos,
-        {
-          id: Number(new Date()),
-          title: newTitle,
-          desc: newDesc,
-          isDone: false,
-        },
-      ]);
-      setNewTitle("");
-      setNewDesc("");
-      return;
-    } else {
-      alert("The message field cannot be empty.");
-    }
-  };
 
   const handleDelete = (id: number) => {
     setTodos(todos.filter((e) => e.id !== id));
@@ -55,17 +35,8 @@ export const TodoList: React.FC = () => {
   return (
     <div style={{ display: "flex", padding: 50, border: "1px solid black" }}>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <input
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-          placeholder="Title"
-        />
-        <input
-          value={newDesc}
-          onChange={(e) => setNewDesc(e.target.value)}
-          placeholder="Description"
-        />
-        <button onClick={handleAdd}>Add</button>
+        <AddTodo todos={todos} setTodos={setTodos} />
+        <br />
         <div style={{ display: "flex" }}>
           <TodoGroup isInProgress={true}>
             {notDoneTodos.map((e) => (
