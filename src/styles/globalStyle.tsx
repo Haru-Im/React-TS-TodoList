@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
 
         width: 100vw;
         height : 100vh;
+
         font-size: 1.2rem;
         background-color: var(--color-bg);
 
@@ -38,4 +39,6 @@ export const GlobalStyle = createGlobalStyle`
         overflow-y: auto;
         padding: 1.5rem;
     }
+
+ 
 `;
