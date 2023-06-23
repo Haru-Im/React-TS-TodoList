@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Todo } from "./Todo";
+import { TodoGroup } from "./TodoGroup";
 
 const todoList = [
   { id: 0, title: "first", desc: "hihihi", isDone: false },
@@ -18,6 +20,9 @@ export const TodoList: React.FC = () => {
   const [todos, setTodos] = useState(todoList);
   const [newTitle, setNewTitle] = useState<string>("");
   const [newDesc, setNewDesc] = useState<string>("");
+
+  const doneTodos = todos.filter((e) => e.isDone === true);
+  const notDoneTodos = todos.filter((e) => e.isDone === false);
 
   const handleAdd = () => {
     if (newTitle.trim().length !== 0 && newDesc.trim().length !== 0) {
@@ -62,18 +67,26 @@ export const TodoList: React.FC = () => {
           placeholder="Description"
         />
         <button onClick={handleAdd}>Add</button>
-        {todos.map((e) => {
-          return (
-            <div key={e.id} style={{ border: "1px solid red" }}>
-              <h2>{e.title}</h2>
-              <p>{e.desc}</p>
-              <button onClick={() => handleDelete(e.id)}>X</button>
-              <button onClick={() => handleToggleStatus(e)}>
-                {e.isDone ? "취소" : "완료"}
-              </button>
-            </div>
-          );
-        })}
+        <TodoGroup>
+          {doneTodos.map((e) => (
+            <Todo
+              todo={e}
+              key={e.id}
+              onDelete={handleDelete}
+              onToggle={handleToggleStatus}
+            />
+          ))}
+        </TodoGroup>
+        <TodoGroup>
+          {notDoneTodos.map((e) => (
+            <Todo
+              todo={e}
+              key={e.id}
+              onDelete={handleDelete}
+              onToggle={handleToggleStatus}
+            />
+          ))}
+        </TodoGroup>
       </div>
     </div>
   );
