@@ -17,12 +17,12 @@ type TodoType = {
 };
 
 export const TodoList: React.FC = () => {
-  const [todos, setTodos] = useState(todoList);
+  const [todos, setTodos] = useState<TodoType[]>(todoList);
   const [newTitle, setNewTitle] = useState<string>("");
   const [newDesc, setNewDesc] = useState<string>("");
 
-  const doneTodos = todos.filter((e) => e.isDone === true);
-  const notDoneTodos = todos.filter((e) => e.isDone === false);
+  const doneTodos = todos.filter((e) => e.isDone);
+  const notDoneTodos = todos.filter((e) => !e.isDone);
 
   const handleAdd = () => {
     if (newTitle.trim().length !== 0 && newDesc.trim().length !== 0) {
@@ -40,7 +40,6 @@ export const TodoList: React.FC = () => {
       return;
     } else {
       alert("The message field cannot be empty.");
-      return;
     }
   };
 
@@ -48,8 +47,8 @@ export const TodoList: React.FC = () => {
     setTodos(todos.filter((e) => e.id !== id));
   };
 
-  const handleToggleStatus = (e: Todo) => {
-    const changedStatus = { ...e, isDone: e.isDone ? false : true };
+  const handleToggleStatus = (e: TodoType) => {
+    const changedStatus = { ...e, isDone: !e.isDone };
     setTodos(todos.map((todo) => (todo.id === e.id ? changedStatus : todo)));
   };
 
@@ -67,26 +66,29 @@ export const TodoList: React.FC = () => {
           placeholder="Description"
         />
         <button onClick={handleAdd}>Add</button>
-        <TodoGroup>
-          {doneTodos.map((e) => (
-            <Todo
-              todo={e}
-              key={e.id}
-              onDelete={handleDelete}
-              onToggle={handleToggleStatus}
-            />
-          ))}
-        </TodoGroup>
-        <TodoGroup>
-          {notDoneTodos.map((e) => (
-            <Todo
-              todo={e}
-              key={e.id}
-              onDelete={handleDelete}
-              onToggle={handleToggleStatus}
-            />
-          ))}
-        </TodoGroup>
+        <div style={{ display: "flex" }}>
+          <TodoGroup isInProgress={true}>
+            {notDoneTodos.map((e) => (
+              <Todo
+                todo={e}
+                key={e.id}
+                onDelete={handleDelete}
+                onToggle={handleToggleStatus}
+              />
+            ))}
+          </TodoGroup>
+
+          <TodoGroup isInProgress={false}>
+            {doneTodos.map((e) => (
+              <Todo
+                todo={e}
+                key={e.id}
+                onDelete={handleDelete}
+                onToggle={handleToggleStatus}
+              />
+            ))}
+          </TodoGroup>
+        </div>
       </div>
     </div>
   );
