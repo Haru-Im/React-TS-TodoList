@@ -1,5 +1,4 @@
-import { useTodos } from "../../../hooks";
-import { TodoType } from "../../../types";
+import { useTodos } from "./hooks";
 import { TodoListLayout } from "../layout";
 import { AddTodoView, TodoListBoxView } from "../views";
 

@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import { TodoType } from "../types";
+import { TodoType } from "../../../../types";
 import axios from "axios";
 
 export const useTodos = () => {
