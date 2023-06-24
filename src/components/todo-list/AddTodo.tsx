@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type TodoType = {
   id: number;
@@ -16,6 +16,8 @@ export const AddTodo: React.FC<AddTodoProps> = ({ todos, setTodos }) => {
   const [newTitle, setNewTitle] = useState<string>("");
   const [newDesc, setNewDesc] = useState<string>("");
 
+  const titleInputRef = useRef<HTMLInputElement>(null);
+
   const handleAdd = () => {
     if (newTitle.trim().length !== 0 && newDesc.trim().length !== 0) {
       setTodos([
@@ -29,6 +31,7 @@ export const AddTodo: React.FC<AddTodoProps> = ({ todos, setTodos }) => {
       ]);
       setNewTitle("");
       setNewDesc("");
+      titleInputRef.current?.focus();
       return;
     } else {
       alert("The message field cannot be empty.");
@@ -41,6 +44,7 @@ export const AddTodo: React.FC<AddTodoProps> = ({ todos, setTodos }) => {
         value={newTitle}
         onChange={(e) => setNewTitle(e.target.value)}
         placeholder="Title"
+        ref={titleInputRef}
       />
       <input
         value={newDesc}
