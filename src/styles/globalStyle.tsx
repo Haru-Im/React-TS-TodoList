@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     ${reset}
 
     :root {
-        --color-bg : beige;
+        --color-bg : #ADD8E6;
     }
 
     *, *::before, *::after {
@@ -31,9 +31,10 @@ export const GlobalStyle = createGlobalStyle`
 
     }
 
-    #app {
+    #root {
         display: flex;
-        max-width: 400px;
+        min-width: 800px;
+        max-width: 1200px;
         height: 100%;
         background-color: var(--color-bg);
         overflow-y: auto;

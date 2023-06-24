@@ -1728,6 +1728,18 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@rive-app/canvas@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@rive-app/canvas/-/canvas-1.2.0.tgz#246219f3d25bc6b54416d118207a095ccd12cfcf"
+  integrity sha512-Wm6bQiE9F5+vE9R/zTnGOH3yNM8Dim+81dI2MWeuOFJ2mmdKWgsFir1tdHFjmndESNKySO7cFs8xZ4TVLERWlQ==
+
+"@rive-app/react-canvas@^3.0.53":
+  version "3.0.53"
+  resolved "https://registry.yarnpkg.com/@rive-app/react-canvas/-/react-canvas-3.0.53.tgz#7b0d23f4d5c24c5f46364fe1edd44d75f466f47f"
+  integrity sha512-iPSvBMA3jNJLXTyCRMj9NQTpWHAupGdXbY4z0OiPR6SCB+LothdputEq43g3p3PTxVC5ujHCRLrr4P7f0drZnw==
+  dependencies:
+    "@rive-app/canvas" "1.2.0"
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz#04bc0608f4aa4b2e4b1aebf284344d0f68fda283"
@@ -6415,6 +6427,18 @@ loose-envify@^1.1.0, loose-envify@^1.4.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lottie-react@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/lottie-react/-/lottie-react-2.4.0.tgz#f7249eee2b1deee70457a2d142194fdf2456e4bd"
+  integrity sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==
+  dependencies:
+    lottie-web "^5.10.2"
+
+lottie-web@^5.10.2:
+  version "5.12.2"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.12.2.tgz#579ca9fe6d3fd9e352571edd3c0be162492f68e5"
+  integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
 
 lower-case@^2.0.2:
   version "2.0.2"
