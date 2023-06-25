@@ -1,3 +1,40 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 1,
+      "title": "Do We Really Need the Moon?",
+      "desc": "Geologist II",
+      "isDone": false
+    },
+    {
+      "id": 2,
+      "title": "The Captains",
+      "desc": "Chemical Engineer",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "title": "Après lui",
+      "desc": "Design Engineer",
+      "isDone": true
+    },
+    {
+      "id": 4,
+      "title": "CSNY Déjà Vu",
+      "desc": "Desktop Support Technician",
+      "isDone": true
+    },
+    {
+      "id": 5,
+      "title": "Dope",
+      "desc": "Automation Specialist III",
+      "isDone": false
+    },
+    {
+      "id": 6,
+      "title": "Psychopath, The",
+      "desc": "Environmental Specialist",
+      "isDone": true
+    }
+  ]
 }
