@@ -70,7 +70,6 @@ export const useTodos = () => {
   // json-server 사용시
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_TODOS);
     const getTodos = async () => {
       const response = await axios.get(`${process.env.REACT_APP_TODOS}/todos`);
       setTodos(response.data);

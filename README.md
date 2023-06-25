@@ -1,11 +1,13 @@
 # This project is a simple Todo List application built with React and TypeScript
 
 ### 배포 주소 : https://react-ts-todo-list-ten.vercel.app/
+
 ### Todo-list 속 재미있는 이스트에그를 찾아보세요! 🤪
 
-***
+---
 
 ### Project Structure
+
 - `src`
   - `hooks` : Custom hooks를 관리
   - `pages`: 페이지들을 관리하는 폴더
